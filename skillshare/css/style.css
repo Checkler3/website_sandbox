@@ -1,0 +1,70 @@
+html, body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: #3b5370;
+    padding: 40px;
+    text-align: center;
+}
+
+header img {
+    size: 75%;
+}
+
+h1 {
+    font-size: 90px;
+    color: white;
+    font-family: 'Expletus Sans', cursive;
+}
+
+header img {
+    border-radius: 150px;
+    border: 10px solid #99000a;
+}
+
+.content {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img.big-image {
+    max-width: 100%;
+}
+
+p.caption {
+    font-size: 16px;
+    color: gray;
+    font-style: italic;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.footer {
+    text-align: center;
+    color: gray;
+    padding: 40px 20x;
+    background-color: #e6e6e6;
+}
+
+footer ul li {
+    display: inline;
+}
+/*
+        <div class="footer">
+            <ul>
+                <li>Made by Corey Heckler</li>
+                <li>&copy; 2019</li>
+            </ul>
+        </div>
+*/
