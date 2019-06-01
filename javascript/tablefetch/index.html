@@ -11,7 +11,7 @@
     <body>
         <canvas id='chart' width='800' height='500'></canvas> 
         <script>
-                        
+
             chartIt();
             async function chartIt() {
                 const data = await getData();
@@ -27,7 +27,24 @@
                             backgroundColor: 'rgba(255, 99, 132, 0.2)',
                             borderColor: 'rgba(255, 99, 132, 1)',
                             borderWidth: 1
-                        }]
+                        },
+                        {
+                            label: 'Northern Hemisphere Temperature in C°',
+                            data: data.north,
+                            fill: false,
+                            backgroundColor: 'rgba(26, 153, 51, 0.2)',
+                            borderColor: 'rgba(26, 153, 51, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Southern Hemisphere Temperature in C°',
+                            data: data.south,
+                            fill: false,
+                            backgroundColor: 'rgba(129, 38, 168, 0.2)',
+                            borderColor: 'rgba(129, 38, 168, 1)',
+                            borderWidth: 1
+                        }
+                        ]
                     },
                     options: {
                         scales: {
@@ -49,7 +66,10 @@
 
                 const xs = [];
                 const ys = [];
-
+                const north = [];
+                const south = [];
+                
+                // Grab files
                 // Grabs data 
                 const response = await fetch('temptable.csv');
                 const data = await response.text();
@@ -60,14 +80,12 @@
                 // Read each row, then split the cols into indiviudal variables
                 for (let i = 0; i < table.length; i++) {
                     const cols = table[i].split(",");
-                    const year = cols[0];
-                    xs.push(year);
-                    const temp = cols[1]; 
-                    ys.push(parseFloat(temp) + 14);                  
-                    console.log(year, temp);
+                    xs.push(parseFloat(cols[0]) + 14);
+                    ys.push(parseFloat(cols[1]) + 14); 
+                    north.push(parseFloat(cols[2]) + 14);
+                    south.push(parseFloat(cols[3]) + 14)                 
                 }
-
-                return {xs, ys};
+                return {xs, ys, north, south};
                 
             }
             
