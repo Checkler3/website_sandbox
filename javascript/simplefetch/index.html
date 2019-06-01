@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Basic Javascript Fetch</title>
+    </head>
+    <body>
+        <h1>Fetching text file and fetching multiple images from array</h1>
+
+        <p id='poem'></p>
+        
+        <script>
+
+            const fileNames = [
+                "rainbow.jpg", 
+                "Masterchief.jpg",
+                "bigimage.jpg"
+            ];
+
+            console.log('About to fetch a rainbow');
+
+            fetchPoem()
+            .then(poem => {
+                document.getElementById('poem').innerText = poem;
+                console.log("Poem Fetched Successfully");
+            })
+            .catch(error => {
+                console.log("Error fetching poem");
+                console.error(error);
+            })
+
+            fetchImages(fileNames)
+            .then(response => {
+                console.log("Images Fetched Successfully")
+            })
+            .catch(error => {
+                console.log("Error fetching images")
+                console.error(error);
+            })
+
+            async function fetchPoem() {
+                const response = await fetch('poem.txt');
+                return await response.text();
+            }
+
+            async function fetchImages(fileNames) {
+                for (let fileName of fileNames) {
+                    const response =  await fetch(fileName);
+                    const blob = await response.blob();
+                    const img = document.createElement('img');
+                    img.src = URL.createObjectURL(blob);
+                    document.body.append(img);
+                }
+            }
+
+            // Code to fetch single image
+
+            // fetchImage()
+        
+            // .then(response => {
+            // console.log("Image fetched successfully");
+            // })
+            // .catch(error => {
+            //     console.log('Error fetching images');
+            //     console.error(error);
+            // });
+
+            // async function fetchImage() {
+            //     const response =  await fetch('rainbow.jpg');            
+            //     const blob = await response.blob();
+            //     document.getElementById('rainbow').src = URL.createObjectURL(blob);
+            // }
+
+            
+        </script>
+    </body>
+</html>
