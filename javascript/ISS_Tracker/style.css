@@ -1,0 +1,44 @@
+h1 { 
+    text-align: center;
+    margin: auto;
+    padding: 10px; 
+    width: 50%;
+    color: gold;
+}
+
+body {
+    background-color: #e0e0e0;
+}
+
+.header {
+    margin: 0 auto;
+    max-width: 100%;
+    background-color: purple;
+    text-align: center;
+    
+}
+
+.content-header {
+    margin: 0 auto;
+    text-align: left;
+    max-width: 1000px;
+}
+
+.content {
+    background-color: #e6e6e6;
+    margin: 0 auto;  
+    padding: 10px;
+    max-width: 1000px;
+}
+
+.footer {
+    text-align: center;
+    color: gray;
+    margin-top: 10px;
+    padding: 40px;
+    background-color: #e6e6e6;
+}
+
+footer ul li {
+    display: inline;
+}
